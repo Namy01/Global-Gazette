@@ -1,0 +1,51 @@
+<!-- Comment Form Start -->
+<div class="mb-3">
+    <div class="section-title mb-0">
+        <h4 class="m-0 text-uppercase font-weight-bold">Leave a comment</h4>
+    </div>
+    {% if messages %}
+                    <div class="alert alert-info">
+                        {% for message in messages %}
+                        <p>{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+    <div class="bg-white border border-top-0 p-4">
+        <form class="form-contact comment_form" action="{% url 'post-comment' %}" id="commentForm" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="post" value="{{ post.id }}">
+            <div class="form-row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" class="form-control" id="name" name="name" value="{{ form.name.value }}">
+                        {{ form.name.errors }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" class="form-control" id="email" name="email" value="{{ form.email.value }}">
+                        {{ form.email.errors }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="profile">Profile</label>
+                        <input type="file" class="form-control" id="profile" name="profile">
+                        {{ form.profile.errors }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="comment">Message *</label>
+                <textarea id="comment" name="comment" cols="30" rows="5" class="form-control">{{ form.comment.value }}</textarea>
+                {{ form.comment.errors }}
+            </div>
+            <div class="form-group mb-0">
+                <input type="submit" value="Leave a comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Comment Form End -->

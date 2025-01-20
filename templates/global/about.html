@@ -1,0 +1,52 @@
+{% extends "global/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid mt-5 pt-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="section-title mb-0">
+                    <h4 class="m-0 text-uppercase font-weight-bold">About Global Gazette </h4>
+                </div>
+                <div class="bg-white border border-top-0 p-4 mb-3">
+                    <div class="mb-4 ">
+                        <div class="col-lg-6 mb-5" >
+                            <video width="640px" controls autoplay>
+                                <source src="{% static 'global/video/global.mp4' %}" type="video/mp4">
+                              </video>
+                        </div>
+                        <h6 class="text-uppercase font-weight-bold">About</h6>
+                        <p class="mb-4"> <a href="/">"Global Gazette"</a>   is a term that typically refers to an international publication or news outlet. The word "Gazette" originates from the Italian word "gazzetta," which historically referred to a small, informal news sheet.
+                            <p><strong> A Brief History of Global Gazette</strong></p>
+                            
+                           
+                             Founded in 1989 by Namrata, the Global Gazette started with a clear mission: to deliver reliable news and diverse perspectives. Initially focused on local news, it quickly gained recognition for its thorough reporting and editorial integrity. <br>
+
+                            Under Namrata's visionary leadership, the publication expanded its reach globally. By the mid-1990s, Global Gazette had established correspondents in various countries, providing an international perspective on major events.
+                            <br>
+                            Today, the Global Gazette is a trusted source of news worldwide, known for its commitment to factual reporting and insightful commentary. Namrata's legacy continues to guide the publication, ensuring it remains dedicated to quality journalism and global understanding. </p>
+                            <p>
+                              
+                                <p><strong>   Legacy</strong></p>
+Namrata's pioneering spirit and dedication have left a lasting impact on the journalistic world. Her vision for a trustworthy news source that fosters dialogue and understanding continues to inspire the Global Gazette's mission today. 🌍📰✨
+
+Feel free to add any specific details or make further adjustments! 😊
+                            </p>
+                       
+                    </div>
+
+                    
+                </div>
+            </div>
+            <div class="col-lg-4">
+                {% include "global/home/latest/right/category.html" %}
+                {% include "global/home/latest/right/tags.html" %}
+                <div class="mb-3">
+                    <img src="{% static 'global/img/ban.png' %}" alt="" width="360px">
+                </div>
+                {% include "global/home/latest/right/newsletter.html" %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

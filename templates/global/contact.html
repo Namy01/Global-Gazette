@@ -1,0 +1,87 @@
+{% extends "global/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container-fluid mt-5 pt-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="section-title mb-0">
+                    <h4 class="m-0 text-uppercase font-weight-bold">Contact Us For Any Queries</h4>
+                </div>
+                <div class="bg-white border border-top-0 p-4 mb-3">
+                    <div class="mb-4 ">
+                        
+                        <h6 class="text-uppercase font-weight-bold">Contact Info</h6>
+                        <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                        <div class="mb-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fa fa-map-marker-alt text-primary mr-2"></i>
+                                <h6 class="font-weight-bold mb-0">Our Office</h6>
+                            </div>
+                            <p class="m-0">Bhaktapur District, Bagmati Province 44811</p>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fa fa-envelope-open text-primary mr-2"></i>
+                                <h6 class="font-weight-bold mb-0">Email Us</h6>
+                            </div>
+                            <p class="m-0">global_gazette@gmail.com</p>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fa fa-phone-alt text-primary mr-2"></i>
+                                <h6 class="font-weight-bold mb-0">Call Us</h6>
+                            </div>
+                            <p class="m-0">+997 9808037665</p>
+                        </div>
+                    </div>
+
+                    {% if messages %}
+                    <div class="alert alert-info">
+                        {% for message in messages %}
+                        <p>{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <h6 class="text-uppercase font-weight-bold mb-3">Contact Us</h6>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control p-4" name="name" placeholder="Your Name" required="required" value="{{ form.name.value }}">
+                                    {{ form.name.errors }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="email" class="form-control p-4" name="email" placeholder="Your Email" required="required" value="{{ form.email.value }}">
+                                    {{ form.email.errors }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control p-4" name="subject" placeholder="Subject" required="required" value="{{ form.subject.value }}">
+                            {{ form.subject.errors }}
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="4" name="message" placeholder="Message" required="required">{{ form.message.value }}</textarea>
+                            {{ form.message.errors }}
+                        </div>
+                        <div>
+                            <button class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;" type="submit">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                {% include "global/home/latest/right/trending.html" %}
+                {% include "global/home/latest/right/category.html" %}
+                {% include "global/home/latest/right/newsletter.html" %}
+                {% include "global/home/latest/right/tags.html" %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

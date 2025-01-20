@@ -1,0 +1,24 @@
+{% extends "global/base.html" %}
+{% block content %}
+
+<!-- News With Sidebar Start -->
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                {% include "global/post_detail/left/post_view.html" %}
+                {% include "global/post_detail/left/comment_list.html" %}
+                {% include "global/post_detail/left/comment_form.html" %}
+               
+            </div>
+            <div class="col-lg-4">
+                <br>
+                {% include "global/home/latest/right/trending.html" %}
+                {% include "global/home/latest/right/newsletter.html" %}
+                {% include "global/home/latest/right/tags.html" %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- News With Sidebar End -->
+{% endblock content %}

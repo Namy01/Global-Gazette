@@ -1,0 +1,61 @@
+{% load static %}
+<div class="col-12">
+    <div class="section-title">
+        <h4 class="m-0 text-uppercase font-weight-bold">Latest News</h4>
+        <a class="text-secondary font-weight-medium text-decoration-none" href="">View All</a>
+    </div>
+</div>
+{% for post in latest %}
+<div class="col-lg-6">
+    <div class="position-relative mb-3">
+        <img class="img-fluid w-100 h-300" src="{{ post.image.url }}" style="object-fit: cover;" >
+        <div class="bg-white border border-top-0 p-4">
+            <div class="mb-2">
+                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                    href="">{{ post.category.name }}</a>
+                <a class="text-body" href=""><small>{{ post.published_at|date:" M d, Y "}}</small></a>
+            </div>
+            <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="">{{ post.title | truncatechars:29 }}</a>
+            <p class="m-0">{{ post.content| truncatechars:50 }}</p>
+        </div>
+        <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
+            <div class="d-flex align-items-center">
+                <img class="rounded-circle mr-2" src="{% static 'global/img/author.jpg' %}" width="25" height="25" alt="">
+                <small>{{ post.author.username }}</small>
+            </div>
+            <div class="d-flex align-items-center">
+                <small class="ml-3"><i class="far fa-eye mr-2"></i>{{ post.views_count }}</small>
+                <small class="ml-3"><i class="far fa-comment mr-2"></i>{{ post.comment_set.count }}</small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+<div class="col-lg-6">
+    {% for post in latest_small1 %}
+    <div class="d-flex align-items-center bg-white mb-3" style="height: auto;">
+        <img class="img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}" style="max-height: 60px; width: auto;">
+        <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+            <div class="mb-2">
+                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">{{ post.category.name }}</a>
+                <a class="text-body" href=""><small>{{ post.published_at|date:" M d, Y "}}</small></a>
+            </div>
+            <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">{{ post.title | truncatechars:29 }}</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="col-lg-6">
+    {% for post in latest_small2 %}
+    <div class="d-flex align-items-center bg-white mb-3" style="height: auto;">
+        <img class="img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}" style="max-height: 60px; width: auto;">
+        <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
+            <div class="mb-2">
+                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">{{ post.category.name }}</a>
+                <a class="text-body" href=""><small>{{ post.published_at|date:" M d, Y "}}</small></a>
+            </div>
+            <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">{{ post.title | truncatechars:29 }}</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>

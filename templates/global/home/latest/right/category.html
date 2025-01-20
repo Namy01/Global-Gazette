@@ -1,0 +1,12 @@
+<div class="mb-3">
+    <div class="section-title mb-0">
+        <h4 class="m-0 text-uppercase font-weight-bold">Category</h4>
+    </div>
+    <div class="bg-white border border-top-0 p-3">
+        <div>
+            {% for category in categories %}
+            <a href="{% url 'post-by-category' category.id %}" class="btn btn-sm btn-outline-warning  mb-1">{{ category.name|title }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
