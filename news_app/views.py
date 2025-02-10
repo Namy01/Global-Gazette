@@ -169,5 +169,5 @@ class PostSearchView(View):
         return render(
             request,
             self.template_name,
-            {"page_obj": posts, "query": query},
+            {"posts": posts, "query": query},
         )
