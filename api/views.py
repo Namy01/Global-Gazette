@@ -3,11 +3,11 @@ from django.shortcuts import render
 
 from django.contrib.auth.models import Group, User
 
-from news_app.models import Category
+from news_app.models import Category, Tag
 from rest_framework import permissions, viewsets, exceptions # type: ignore
 from rest_framework.response import Response # type: ignore
 from rest_framework.views import APIView # type: ignore
-from api.serializers import UserSerializer, GroupSerializer, CategorySerializer
+from api.serializers import TagSerializer, UserSerializer, GroupSerializer, CategorySerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -29,6 +29,12 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    permissions_classes = [permissions.IsAuthenticated]
+
+class TagViewSet(viewsets.ModelViewSet):
+
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
     permissions_classes = [permissions.IsAuthenticated]
 
 

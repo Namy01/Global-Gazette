@@ -18,5 +18,10 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model= Category
         fields = ['id', 'name']
+        
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= Tag
+        fields = ['id', 'name']
 
 
